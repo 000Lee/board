@@ -41,6 +41,10 @@ module.exports = class User extends Sequelize.Model {
    }
 
    static associate(db) {
-      // 관계를 정의하지 않아도 빈 메서드를 추가하여 오류를 방지
+      db.User.hasMany(db.Board, {
+         foreignKey: 'UserId',
+         sourceKey: 'id',
+      })
    }
 }
+/* ?? FK왜 안생기지 ?? */

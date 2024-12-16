@@ -29,13 +29,13 @@ const Navbar = ({ isAuthenticated, user }) => {
          </div>
 
          {/* 인증 상태에 따른 네비게이션 */}
-         <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+         <div>
             {isAuthenticated ? (
                <>
-                  <Link to="/posts/create" style={{ textDecoration: 'none', display: 'inline-block', fontSize: '16px', color: '#007bff' }}>
+                  <Link to="/posts/create" style={{ textDecoration: 'none', display: 'inline-block', fontSize: '16px', color: 'blue' }}>
                      글쓰기
                   </Link>
-                  <Link to="/my" style={{ textDecoration: 'none', fontSize: '16px', color: '#212529' }}>
+                  <Link to="/my" style={{ textDecoration: 'none', fontSize: '16px', color: 'gray' }}>
                      {user?.nick}님
                   </Link>
                   <button
@@ -43,10 +43,10 @@ const Navbar = ({ isAuthenticated, user }) => {
                      style={{
                         padding: '5px 10px',
                         fontSize: '16px',
-                        backgroundColor: '#dc3545',
-                        color: '#fff',
+                        backgroundColor: 'pink',
+                        color: 'white',
                         border: 'none',
-                        borderRadius: '4px',
+                        borderRadius: '10px',
                         cursor: 'pointer',
                      }}
                   >
@@ -59,10 +59,10 @@ const Navbar = ({ isAuthenticated, user }) => {
                      style={{
                         padding: '5px 10px',
                         fontSize: '16px',
-                        backgroundColor: '#007bff',
-                        color: '#fff',
+                        backgroundColor: 'blue',
+                        color: 'white',
                         border: 'none',
-                        borderRadius: '4px',
+                        borderRadius: '10px',
                         cursor: 'pointer',
                      }}
                   >

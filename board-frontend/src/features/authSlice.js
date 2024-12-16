@@ -123,6 +123,22 @@ const authSlice = createSlice({
             state.loading = true
             state.error = action.payload
          })
+
+      // 로그인 상태 확인
+      builder
+         .addCase(checkAuthStatusThunk.pending, (state) => {
+            state.loading = true
+            state.error = null
+         })
+         .addCase(checkAuthStatusThunk.fulfilled, (state, action) => {
+            state.loading = false
+            state.isAuthenticated = action.payload.isAuthenticated
+            state.user = action.payload.user || null
+         })
+         .addCase(checkAuthStatusThunk.rejected, (state, action) => {
+            state.isAuthenticated = false
+            state.user = null
+         })
    },
 })
 
