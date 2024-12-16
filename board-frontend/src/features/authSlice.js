@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { registerUser, loginUser, logoutUser } from '../api/api'
+import { registerUser, loginUser, logoutUser, checkAuthStatus } from '../api/api'
 
 /*
  rejectWithValue: 에러 메세지를 rejected에 action.payload로 전달할때 사용
@@ -43,6 +43,16 @@ export const loginUserThunk = createAsyncThunk('auth/loginUser', async (credenti
       return response.data.user
    } catch (error) {
       return rejectWithValue(error.response?.data?.message || '로그인 실패')
+   }
+})
+
+// 로그인 상태 확인 Thunk (Redux 초기화 복구)
+export const checkAuthStatusThunk = createAsyncThunk('auth/checkAuthStatus', async (_, { rejectWithValue }) => {
+   try {
+      const response = await checkAuthStatus()
+      return response.data
+   } catch (error) {
+      return rejectWithValue(error.response?.data?.message || '상태 확인 실패')
    }
 })
 
