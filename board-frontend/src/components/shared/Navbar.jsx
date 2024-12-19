@@ -32,7 +32,7 @@ const Navbar = ({ isAuthenticated, user }) => {
          <div>
             {isAuthenticated ? (
                <>
-                  <Link to="/posts/create" style={{ textDecoration: 'none', display: 'inline-block', fontSize: '16px', color: 'blue' }}>
+                  <Link to="/boards/create" style={{ textDecoration: 'none', display: 'inline-block', fontSize: '16px', color: 'blue' }}>
                      글쓰기
                   </Link>
                   <Link to="/my" style={{ textDecoration: 'none', fontSize: '16px', color: 'gray' }}>

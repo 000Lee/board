@@ -1,9 +1,11 @@
-import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import Login from './pages/Login'
-import Signup from './pages/Signup'
 import Navbar from './components/shared/Navbar'
+import Home from './pages/Home'
+import Signup from './pages/Signup'
+import Login from './pages/Login'
+import BoardCreatePage from './pages/BoardCreatePage'
+import BoardEditPage from './pages/BoardEditPage'
+import BoardDetailPage from './pages/BoardDetailPage'
 
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -19,15 +21,17 @@ function App() {
    }, [dispatch])
 
    return (
-      <div>
+      <>
          <Navbar isAuthenticated={isAuthenticated} user={user} />
-         <h1>Board Application</h1>
          <Routes>
-            <Route path="/" element={<Home />} /> {/* 초기 화면 */}
+            <Route path="/" element={<Home isAuthenticated={isAuthenticated} />} /> {/* 초기 화면 */}
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/boards/create" element={<BoardCreatePage />} />
+            <Route path="/boards/edit/:id" element={<BoardEditPage />} />
+            <Route path="/boards/:id" element={<BoardDetailPage isAuthenticated={isAuthenticated} />} />
          </Routes>
-      </div>
+      </>
    )
 }
 
